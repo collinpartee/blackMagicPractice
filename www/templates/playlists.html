@@ -12,6 +12,11 @@
                         </div>
                     </div>
                 </div>
+                <div style="display: table-row" class="background-pane">
+                    <div ng-if="questionAsked == false" ng-hide="hasStartedPlaying == 'almost' " class="row right-footer" ng-click="modal.show()">
+                        <span>Click to Learn More</span>
+                    </div>
+                </div>
             </div>
 
             <div class="">
@@ -85,3 +90,29 @@
         </div>
     </ion-content>
 </ion-view>
+
+<script id="templates/modal.html" type="text/ng-template">
+    <ion-modal-view>
+        <!--
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">New Contact</h1>
+          <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+        </ion-header-bar>
+-->
+        <button class="button button-clear button-primary" style="margin-top: 10px;" ng-click="modal.hide()">Close</button>
+        <ion-content class="padding has-header">
+            <img class="decription-image" src="{{currQuestion.imageUrl}}" />
+            <h3 class="description-header">{{currQuestion.shortDescription}}</h3>
+            <p class="description-date">{{currQuestion.dateDescription}}</p>
+            <hr/>
+
+            <span class="description-info">{{currQuestion.info}}</span>
+            <p class="description-more-info">{{currQuestion.longDescription}}</p>
+            <div ng-if="currQuestion.quote.length > 1">
+                <blockquote>
+                    <p class="description-quote">{{currQuestion.quote}}</p>
+                </blockquote>
+            </div>
+        </ion-content>
+    </ion-modal-view>
+</script>

@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('PlaylistsCtrl', function ($scope) {
+.controller('PlaylistsCtrl', function ($scope, $ionicModal, $ionicPlatform) {
     //variables
     $scope.questionAsked = true;
     $scope.hasFinishedPlaying = false;
@@ -535,6 +535,12 @@ angular.module('starter.controllers', [])
 
     //---------------------------------------------------------->
 
+    //code for ionic modal
+    $ionicModal.fromTemplateUrl('templates/modal.html', {
+        scope: $scope
+    }).then(function (modal) {
+        $scope.modal = modal;
+    });
 
 })
 

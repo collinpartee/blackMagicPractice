@@ -29,6 +29,11 @@
     vertical-align: middle;
     vertical-align: middle;
 }
+.right-footer {
+    float: right;
+    padding-right: 25px;
+    color: white;
+}
 
 /* ANSWER CHOICES */
 
@@ -58,6 +63,7 @@
 }
 
 /* POINTS */
+
 .headline {
     font-family: 'Quando', serif;
     font-size: 2.2rem;
@@ -94,4 +100,34 @@
 }
 .avatar-image {
     height: 12rem;
+}
+
+/* MODAL */
+
+.decription-image {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    max-height: 40vh;
+}
+.description-header {
+    font-family: 'Quado', serif;
+    margin-bottom: 0px !important;
+    margin-top: 7px;
+    font-size: 1.7rem;
+}
+.description-date {
+    font-family: 'Judson', serif;
+    margin-bottom: 0px;
+}
+.description-info {
+    font-family: 'Judson', serif;
+    font-size: 1rem;
+}
+.description-more-info {
+    font-family: 'Judson', serif;
+    font-size: 1rem;
+}
+.description-quote {
+    font-family: 'Montserrat', sans-serif;
 }
