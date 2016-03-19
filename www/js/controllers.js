@@ -22,7 +22,6 @@ angular.module('starter.controllers', [])
     //    $scope.hasStartedPlaying = 'no';
     //    $scope.showAvatarAnswerMessage = false;
     //    $scope.youGotItRight = false;
-    //    $scope.questionAnswered = false;
 
     //---------------------------------------->
 
@@ -396,29 +395,96 @@ angular.module('starter.controllers', [])
 
     // functions for each one of the answer choices.
     $scope.chooseChoice1 = function () {
+        //this is the first choice to set selected to true
         $scope.choice1Selected = true;
+
+        //these are not selected
         $scope.choice2Selected = false;
         $scope.choice3Selected = false;
         $scope.choice4Selected = false;
+
+        //if the answer of the current question is the same as the answer choice displayed then set YouGotItRight to true.
+        //or else set it to false.
+        if ($scope.currQuestion.answer == $scope.currQuestion.choice3) {
+            //            console.log("you got it right");
+            $scope.youGotItRight = true;
+        } else {
+            console.log("you wrong bro");
+            $scope.youGotItRight = false;
+        }
+
+        //call our answer question function
+        $scope.answerQuestion();
     }
     $scope.chooseChoice2 = function () {
-        $scope.choice1Selected = false;
+
+        //this is the second choice to set selected to true
         $scope.choice2Selected = true;
+
+        //these are not selected
+        $scope.choice1Selected = false;
         $scope.choice3Selected = false;
         $scope.choice4Selected = false;
+
+        //if the answer of the current question is the same as the answer choice displayed then set YouGotItRight to true.
+        //or else set it to false.
+        if ($scope.currQuestion.answer == $scope.currQuestion.choice3) {
+            //            console.log("you got it right");
+            $scope.youGotItRight = true;
+        } else {
+            console.log("you wrong bro");
+            $scope.youGotItRight = false;
+        }
+
+        //call our answer question function
+        $scope.answerQuestion();
     }
     $scope.chooseChoice3 = function () {
+
+        //this is the second choice to set selected to true
+        $scope.choice3Selected = true;
+
+        //these are not selected
         $scope.choice1Selected = false;
         $scope.choice2Selected = false;
-        $scope.choice3Selected = true;
         $scope.choice4Selected = false;
+
+        //if the answer of the current question is the same as the answer choice displayed then set YouGotItRight to true.
+        //or else set it to false.
+        if ($scope.currQuestion.answer == $scope.currQuestion.choice3) {
+            //            console.log("you got it right");
+            $scope.youGotItRight = true;
+        } else {
+            console.log("you wrong bro");
+            $scope.youGotItRight = false;
+        }
+
+        //call our answer question function
+        $scope.answerQuestion();
     }
     $scope.chooseChoice4 = function () {
+
+        //this is the second choice to set selected to true
+        $scope.choice4Selected = true;
+
+        //these are not selected
         $scope.choice1Selected = false;
         $scope.choice2Selected = false;
         $scope.choice3Selected = false;
-        $scope.choice4Selected = true;
-        $scope.showAvatarAnswerMessage = true;
+
+
+        //if the answer of the current question is the same as the answer choice displayed then set YouGotItRight to true.
+        //or else set it to false.
+        if ($scope.currQuestion.answer == $scope.currQuestion.choice3) {
+            //            console.log("you got it right");
+            $scope.youGotItRight = true;
+        } else {
+            console.log("you wrong bro");
+            $scope.youGotItRight = false;
+        }
+
+        //call our answer question function
+        $scope.answerQuestion();
     }
 
     //------------------------------------------------->
@@ -427,6 +493,9 @@ angular.module('starter.controllers', [])
 
         //we have started playing the game
         $scope.hasStartedPlaying = 'yes';
+
+        //because we have just asked the question
+        $scope.questionAsked = true;
 
         //set all the choices to false so they are not green when we see the question
         $scope.choice1Selected = false;
@@ -443,10 +512,28 @@ angular.module('starter.controllers', [])
         //set the chosen question to a $scope variable that we can access in our HTML
         $scope.currQuestion = questionBank[chosenQuestion];
 
-        $scope.questionAsked = true;
+
 
 
     }
+
+    $scope.answerQuestion = function () {
+
+        //because we have just answered the question
+        $scope.questionAsked = false;
+
+        //
+        $scope.canShake = false;
+
+        //if we got the question right then +1 point for us
+        if ($scope.youGotItRight == true) {
+            console.log("points for you!");
+            $scope.score++;
+        }
+
+    }
+
+    //---------------------------------------------------------->
 
 
 })
