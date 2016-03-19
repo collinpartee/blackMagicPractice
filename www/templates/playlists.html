@@ -15,7 +15,7 @@
             </div>
 
             <div class="">
-                <div class="" ng-show="questionAsked == true">
+                <div class="animate-answer-choices" ng-show="questionAsked == true">
                     <div class="row">
                         <button class="answer-choices" ng-click="chooseChoice1()" ng-class="{'selected': choice1Selected}">
                             <span>{{currQuestion.choice1}}</span>
@@ -31,6 +31,24 @@
                         <button class="answer-choices" ng-click="chooseChoice4(); " ng-class="{'selected': choice4Selected}">
                             <span>{{currQuestion.choice4}}</span>
                         </button>
+                    </div>
+                </div>
+                <div class="point-container item-animate-point" ng-show="questionAsked == false">
+                    <div class="row" ng-show="youGotItRight">
+                        <span class="headline">Correct!</span>
+                    </div>
+                    <div class="row" ng-show="youGotItRight">
+                        <span class="headline2">Points For You!</span>
+                    </div>
+                    <div class="row" ng-show="!youGotItRight">
+                        <span class="headline">Wrong!</span>
+                    </div>
+                    <div class="row" ng-show="!youGotItRight">
+                        <span class="headline2">No Points For You</span>
+                    </div>
+                    <div class="row">
+                        <span class="headline-score" ng-show="hasFinishedPlaying != true">Score: {{score}}</span>
+                        <span class="headline-score" ng-show="hasFinishedPlaying == true">Final Score: {{score}}/{{quizLength}}</span>
                     </div>
                 </div>
             </div>
