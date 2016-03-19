@@ -421,6 +421,34 @@ angular.module('starter.controllers', [])
         $scope.showAvatarAnswerMessage = true;
     }
 
+    //------------------------------------------------->
+
+    $scope.askQuestion = function () {
+
+        //we have started playing the game
+        $scope.hasStartedPlaying = 'yes';
+
+        //set all the choices to false so they are not green when we see the question
+        $scope.choice1Selected = false;
+        $scope.choice2Selected = false;
+        $scope.choice3Selected = false;
+        $scope.choice4Selected = false;
+
+        //a random number from 0 to however many questions are in our questionBank array.
+        var chosenQuestion = Math.floor(Math.random() * (questionBank.length - 0)) + 0;
+
+        //increment the current quiz number after we ask the question(it starts at 0)
+        $scope.currQuizNumber++;
+
+        //set the chosen question to a $scope variable that we can access in our HTML
+        $scope.currQuestion = questionBank[chosenQuestion];
+
+        $scope.questionAsked = true;
+
+
+    }
+
+
 })
 
 .controller('PlaylistCtrl', function ($scope) {});

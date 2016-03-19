@@ -5,10 +5,10 @@
                 <div style="display:table-row">
                     <div class="question">
                         <div ng-if="questionAsked == true">
-                            <span>THIS IS WHERE THE QUESTION WILL GO</span>
+                            <span>{{currQuestion.question}}</span>
                         </div>
                         <div ng-if="questionAsked == false">
-                            <span>THIS IS WHERE THE ANSWER WILL GO</span>
+                            <span>{{currQuestion.answer}}</span>
                         </div>
                     </div>
                 </div>
@@ -18,25 +18,25 @@
                 <div class="" ng-show="questionAsked == true">
                     <div class="row">
                         <button class="answer-choices" ng-click="chooseChoice1()" ng-class="{'selected': choice1Selected}">
-                            <span>CHOICE 1</span>
+                            <span>{{currQuestion.choice1}}</span>
                         </button>
                         <button class="answer-choices" ng-click="chooseChoice2()" ng-class="{'selected': choice2Selected}">
-                            <span>CHOICE 2</span>
+                            <span>{{currQuestion.choice2}}</span>
                         </button>
                     </div>
                     <div class="row">
                         <button class="answer-choices" ng-click="chooseChoice3(); " ng-class="{'selected': choice3Selected}">
-                            <span>CHOICE 3</span>
+                            <span>{{currQuestion.choice3}}</span>
                         </button>
                         <button class="answer-choices" ng-click="chooseChoice4(); " ng-class="{'selected': choice4Selected}">
-                            <span>CHOICE 4</span>
+                            <span>{{currQuestion.choice4}}</span>
                         </button>
                     </div>
                 </div>
             </div>
             <div class="avatar-container" ng-if="hasFinishedPlaying == false">
                 <div ng-if="questionAsked == true">
-                    <div class="button-clear avatar">
+                    <div class="button-clear avatar" ng-click="askQuestion()">
                         <div>
                             <img class="avatar-image" src="img/avatars/blinking.gif">
                         </div>
